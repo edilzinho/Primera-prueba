@@ -1,0 +1,31 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class JuegoAdivinanza {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        Random random = new Random();
+        int numeroAleatorio = random.nextInt(100) + 1;
+        int intentos = 0;
+        int respuesta = 0;
+        boolean ganaste = false;
+
+        System.out.println("¡Bienvenido al juego de adivinanza!");
+        System.out.println("Estoy pensando en un número del 1 al 100. Adivina cuál es.");
+
+        while (!ganaste) {
+            System.out.print("Tu respuesta: ");
+            respuesta = input.nextInt();
+            intentos++;
+
+            if (respuesta == numeroAleatorio) {
+                System.out.println("¡Correcto! ¡Ganaste en " + intentos + " intentos!");
+                ganaste = true;
+            } else if (respuesta < numeroAleatorio) {
+                System.out.println("Mi número es mayor que " + respuesta + ". Sigue intentando.");
+            } else {
+                System.out.println("Mi número es menor que " + respuesta + ". Sigue intentando.");
+            }
+        }
+    }
+}
